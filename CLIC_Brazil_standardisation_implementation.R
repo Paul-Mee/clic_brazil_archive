@@ -6,12 +6,12 @@ rm(list=ls())
 ### Directory set up
 ### Update this with your local directories
 ##############
-dir_scripts <- "C:/github/clic_brazil_tmp/"
+dir_scripts <- "C:/github/clic_brazil/"
 
 source (paste0(dir_scripts,"CLIC_Brazil_Script_directories.R"))
 
-require(dplyr)
-require(sf)
+library(dplyr)
+library(sf)
 
 # loads functions to be used for standardisation
 source(paste0(dir_scripts,"CLIC_Brazil_standardisation_functions.R"))
@@ -59,7 +59,7 @@ prop_hosp <- 0.920202
 prop_ITU <- 0.3807172
 
 # 2I Geogrpahical information of municipality centroids
-Text_IBGE <- st_read("CC_data/City_Case_data/Brazil/source_data/ibge/Brazil_AD2_shape.shp")
+Text_IBGE <- st_read(paste0(dir_ibge_data,"Brazil_AD2_shape.shp"))
 
 
 # run standardisation for all districts
