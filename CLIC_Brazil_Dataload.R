@@ -226,6 +226,11 @@ write.csv(brazil_cases_dat_output,file = fname,row.names=FALSE)
 ### Saving as RDS file
 saveRDS(brazil_cases_dat_output, file = fname_RDS) 
 
+
+## For testing get top 50 rows 
+# brazil_cases_dat_output_head <- brazil_cases_dat_output[1:50,]
+# write.csv(brazil_cases_dat_output_head,file = fname,row.names=FALSE)
+# saveRDS(brazil_cases_dat_output_head, file = fname_RDS) 
  
 # ################
 # ### Deaths data 
@@ -257,5 +262,8 @@ write.csv(brazil_deaths_dat_output,file = fname,row.names=FALSE)
 ### Saving as RDS file
 saveRDS(brazil_deaths_dat_output, file = fname_RDS) 
 
-## Housekeeping 
+## For testing get top 50 rows 
+# brazil_deaths_dat_output_head <- brazil_deaths_dat_output[1:50,]
+# write.csv(brazil_deaths_dat_output_head,file = fname,row.names=FALSE)
+# saveRDS(brazil_deaths_dat_output_head, file = fname_RDS) 
 
