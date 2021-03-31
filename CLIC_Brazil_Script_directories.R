@@ -1,0 +1,17 @@
+##############
+### List of directories used by other scripts
+### Pulled out as a separate file to prevent conflicts between different copies of scripts
+##############
+
+dir_source_data <-  "C:/github/clic_brazil/brazil_io/"
+dir_formatted_case_data <-  "C:/github/clic_brazil/cases/"
+dir_formatted_death_data <-  "C:/github/clic_brazil/deaths/"
+dir_scripts <- "C:/github/clic_brazil/"
+dir_pop_age_dist <- "C:/github/clic_brazil/pop_age_dist/"
+dir_case_age_dist <- "C:/github/clic_brazil/case_age_dist/"
+dir_interventions <- "C:/github/clic_brazil/interventions/"
+dir_ibge_data <-  "C:/github/clic_brazil/ibge/"
+dir_covariates <- "C:/github/clic_brazil/covariates/"
+dir_data_objects <- "C:/github/clic_brazil/CC_Intermediate_data_ob"
+epi_filter_file_sources <- "C:/github/clic_brazil/epifilter/R files/main/"
+dir_Rt_data <-  "C:/github/clic_brazil/Rt_data/"
