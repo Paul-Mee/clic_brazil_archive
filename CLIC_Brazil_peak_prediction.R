@@ -2,6 +2,10 @@
 ### Peak prediction code
 #########
 
+### Data clean up
+
+rm(list=ls())
+
 ### Require key packages 
 
 require(MASS)
@@ -17,7 +21,7 @@ require(plotROC)
 ### Directory set up
 ### Update this with your local directories
 ##############
-dir_scripts <- "C:/github/clic_brazil_tmp/"
+dir_scripts <- "C:/github/clic_brazil/"
 
 source (paste0(dir_scripts,"CLIC_Brazil_Script_directories.R"))
 
@@ -36,7 +40,8 @@ if (sys.nframe() == 0L) {
 
 # source background functions and load data 
 
-   source("C:/CADDE_dropbox/Dropbox/COVID_cities/CC_scripts/OB_standardisation_functions.R")
+source(paste0(dir_scripts,"CLIC_Brazil_standardisation_functions.R"))
+
    load(fetch_latest(fileDir = dir_data_objects,
                      type = "BigStandard"))
 
@@ -81,7 +86,8 @@ ObjectNameSuffixVector
 table(is.na(AreaProfilesDF$popden))
 
 # ReferenceAreaScalar<-"São Paulo_SP"
-ReferenceAreaScalar<-"Guarulhos_SP"
+# ReferenceAreaScalar<-"Guarulhos_SP"
+ReferenceAreaScalar<- "Belém_AL"
 # ReferenceAreaScalar<-"Piedade_SP"
 
 AreaProfilesWholeDF<-AreaProfilesDF
