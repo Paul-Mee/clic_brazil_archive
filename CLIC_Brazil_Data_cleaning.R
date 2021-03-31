@@ -5,23 +5,28 @@
 
 # Oliver Brady
 # 30th April 2020
+# Altered to run in batch on the server 
+#rm(list = ls())
+### Data cleaning
+rm(list=ls())
+
+
+### Required libraries
+library(sf)
 
 ##############
 ### Directory set up
 ### Update this with your local directories
 ##############
-dir_scripts <- "C:/github/clic_brazil_tmp/"
+
+dir_scripts <- "C:/github/clic_brazil/"
 
 source (paste0(dir_scripts,"CLIC_Brazil_Script_directories.R"))
 
-# Altered to run in batch on the server 
-#rm(list = ls())
-### Data cleaning - keep tracking objects
-rm(list= ls()[!(ls() %in% c('log_file','elapsed_time','now_time','now_time1','now_time2','now_time3','now_time4','now_time5'))])
-#setwd("/Users/eideobra/Dropbox/10_Collab/CADDE/COVID_cities")
-#setwd("C:/CADDE_dropbox/Dropbox/COVID_cities/") 
+
+
 # loads functions to be used for some of the preprocessing
-source(paste0(dir_scripts,"OB_standardisation_functions.R"))
+source(paste0(dir_scripts,"CLIC_Brazil_standardisation_functions.R"))
 
 
 ##############
@@ -97,6 +102,8 @@ IBGE_Text$Area_Name = as.character(IBGE_Text$Area_Name)
 
 stillNoMatch <- vector()
 
+if(length(noMatch) > 0) {
+
 for(i in 1:length(noMatch)){
   closeMatch <- as.character(Brazil_age_dist$Name[agrep(noMatch[i], Brazil_age_dist$Name)])
   
@@ -119,7 +126,7 @@ for(i in 1:length(noMatch)){
 
 # manual exception matching
 stillNoMatch
-
+}
 
 
 # manually find new matching text name based on lat long from google maps search
@@ -198,7 +205,7 @@ Brazil_deaths = Brazil_deaths[Brazil_deaths$Area %in% caseMAX[, 1], ]
 
 # save the reforamtted data
 save(Brazil_cases, file = paste0(dir_formatted_case_data,"Brazil_case_timeseries_clean.RData"))
-save(Brazil_deaths, file = paste0(dir_formatted_case_data,"Brazil_deaths_timeseries_clean.RData"))
+save(Brazil_deaths, file = paste0(dir_formatted_death_data,"Brazil_deaths_timeseries_clean.RData"))
 
 # depricated
 # add mapping variables (incidence and lat longs)
